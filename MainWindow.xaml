@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fatu_Maria_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Loaded="frmMain_Loaded">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
     </Window.Background>
@@ -41,7 +41,7 @@
         <Canvas HorizontalAlignment="Left" Height="100" Margin="37.196,268,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="112,10,0,0" Height="26" Width="38"/>
         <Label x:Name="lblGlazedRaised" Content="Glazed" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="98,87,0,0" Height="29" FontSize="14" Width="52"/>
-        <TextBox x:Name="txtGlezedRaised" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="156,93,0,0" IsReadOnly="True"/>
+        <TextBox x:Name="txtGlazedRaised" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="156,93,0,0" IsReadOnly="True" TextChanged="txtGlezedRaised_TextChanged"/>
         <Label x:Name="lblSugarRaised" Content="Sugar" HorizontalAlignment="Left" Margin="98,135,0,0" VerticalAlignment="Top" Height="37" Width="52" RenderTransformOrigin="-0.714,-0.849" FontSize="14"/>
         <Label x:Name="lblChocolateFilled" Content="Chocolate" Grid.Column="1" HorizontalAlignment="Left" Margin="37,135,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="txtChocolateFilled" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="109,141,0,0" TextChanged="txtChocolateFilled_TextChanged" FontSize="14"/>
@@ -64,16 +64,20 @@
         <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top"
 Width="131" Margin="0,26,0,0">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="_Doughnuts">
                 <MenuItem Header="Make">
                     <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed"
+Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar"
+IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
                     <MenuItem Header="Filled"/>
                 </MenuItem>
+                <MenuItem x:Name="mnuStop" Header="Stop"
+Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
         </Menu>
 
